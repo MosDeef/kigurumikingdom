@@ -1,0 +1,8 @@
+<%= simple_form_for [@mascot] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Submit', class: 'btn btn-warning mt-2' %>
+<% end %>

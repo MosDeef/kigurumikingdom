@@ -100,48 +100,47 @@ mascots_data = [{
   price: 5000,
   user: User.all.sample,
   photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676882609/00002585_hbni0f.jpg"
-  },
-{
-  name: "",
-  description: "",
-  location: "",
-  price: 5000,
-  user: User.all.sample,
-  photo_url: ""
-},
-{
-  name: "",
-  description: "",
-  location: "",
-  price: 5000,
-  user: User.all.sample,
-  photo_url: ""
-},
-{
-  name: "",
-  description: "",
-  location: "",
-  price: 5000,
-  user: User.all.sample,
-  photo_url: ""
-},
-{
-  name: "",
-  description: "",
-  location: "",
-  price: 5000,
-  user: User.all.sample,
-  photo_url: ""
-},
-{
-  name: "",
-  description: "",
-  location: "",
-  price: 5000,
-  user: User.all.sample,
-  photo_url: ""
-},
-]
+  }]
+# {
+#   name: "",
+#   description: "",
+#   location: "",
+#   price: 5000,
+#   user: User.all.sample,
+#   photo_url: ""
+# },
+# {
+#   name: "",
+#   description: "",
+#   location: "",
+#   price: 5000,
+#   user: User.all.sample,
+#   photo_url: ""
+# },
+# {
+#   name: "",
+#   description: "",
+#   location: "",
+#   price: 5000,
+#   user: User.all.sample,
+#   photo_url: ""
+# },
+# {
+#   name: "",
+#   description: "",
+#   location: "",
+#   price: 5000,
+#   user: User.all.sample,
+#   photo_url: ""
+# },
+# {
+#   name: "",
+#   description: "",
+#   location: "",
+#   price: 5000,
+#   user: User.all.sample,
+#   photo_url: ""
+# }]
 
 mascots_data.each do |mascothash|
   mascot = Mascot.find_or_create_by!(mascothash.except(:photo_url))

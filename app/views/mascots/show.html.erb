@@ -1,0 +1,12 @@
+<div class="container my-4">
+  <div class="card-product">
+    <%= image_tag @mascot.photo %>
+    <div class="card-trip-infos my-4">
+      <h2><%= @mascot.name %></h2>
+      <p><%= @mascot.description %></p>
+    </div>
+  </div>
+  <div class="card-product">
+    <%= link_to 'See the other mascots', mascots_path  %>
+  </div>
+</div>
