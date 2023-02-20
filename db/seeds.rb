@@ -146,7 +146,8 @@ mascots_data.each do |mascothash|
   mascot = Mascot.find_or_create_by!(mascothash.except(:photo_url))
   unless mascot.photo.attached?
     file = URI.open(mascothash[:photo_url])
-    mascot.photo.attach(io: file, filename: "#{mascot.name}.png", content_type: "image/png")
+    photo_filename = File.basename(mascothash[:photo_url])
+    mascot.photo.attach(io: file, filename: photo_filename, content_type: "image/png")
     mascot.save
   end
 end
