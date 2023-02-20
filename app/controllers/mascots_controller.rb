@@ -24,6 +24,6 @@ class MascotsController < ApplicationController
   private
 
   def mascot_params
-    params.require(:mascot).permit(:effect)
+    params.require(:mascot).permit(:name, :photo)
   end
 end
