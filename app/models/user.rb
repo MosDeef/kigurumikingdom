@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :mascots
   has_many :bookings
-  validates :nickname, length: { minimum: 16 }
+  validates :nickname, length: { maximum: 16 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
