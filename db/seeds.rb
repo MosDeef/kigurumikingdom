@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "making Mascots"
 
 mascots_data = [{
@@ -8,11 +10,7 @@ mascots_data = [{
   photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676875633/Screenshot_2023-02-20_at_3.34.19_pm_vvogdx.png"
 },
 {name: "Lerch-san",
-  description: "The towering Lerch-san,
-  mascot for Niigata Prefecture,
-  is based on Theodor Von Lerch,
-  an Austro-Hungarian who introduced skiing to Japan in 1911. He reaches the ceiling here,
-  at the Tobu Department Store in Ikebukuro.",
+  description: "The towering Lerch-san, mascot for Niigata Prefecture, is based on Theodor Von Lerch, an Austro-Hungarian who introduced skiing to Japan in 1911. He reaches the ceiling here, at the Tobu Department Store in Ikebukuro.",
   location: "Niigata",
   price: 5000,
   photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676876339/Screenshot_2023-02-20_at_3.58.47_pm_vdzmor.png"
@@ -84,7 +82,7 @@ mascots_data.each do |mascothash|
   mascot = Mascot.find_or_create_by(mascothash.except(:photo_url))
   unless mascot.photo.attached?
     file = URI.open(mascothash[:photo_url])
-    mascot.photo.attach(io: file, )
+    mascot.photo.attach(io: file, filename: "#{mascot.name}.png", content_type: "image/png")
     mascot.save
   end
 end
