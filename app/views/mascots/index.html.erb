@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Check out these freaks!</h1>
+</div>
+<div class="container my-4">
+  <div class="cards">
+    <% @mascots.each do |mascot| %>
+      <div class="card-product">
+        <%= image_tag mascot.photo %>
+        <div class="card-product-infos">
+          <h2><%= link_to mascot.name, mascot_path(mascot), class: 'card-link' %></h2>
+          <p><%= mascot.description %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="my-4 form-container">
+  <%= link_to 'got another?', new_mascot_path, class: 'btn btn-info mt-2'  %>
+</div>
