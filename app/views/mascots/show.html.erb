@@ -6,7 +6,13 @@
       <p><%= @mascot.description %></p>
     </div>
   </div>
-  <div class="card-product">
+  <div class="container">
+    <% @mascot.bookings.each do |booking| %>
+      <h2>Booked for <%= booking.date %></h2>
+    <% end %>
+  </div>
+  <%= render 'bookings/form' %>
+  <div class="card-product my-5">
     <%= link_to 'See the other mascots', mascots_path  %>
   </div>
 </div>
