@@ -8,8 +8,15 @@
 <div class="container my-8">
   <div class="cards">
     <% @mascots.each do |mascot| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>)">
-        <p> <%= link_to mascot.name, mascot_path(mascot), class: 'text-light text-decoration-none'%> </p>
+      <div class="card-trip">
+        <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>
+        <h2 class="text-center pt-3"><%= mascot.name %></h2>
+        <div class="card-trip-infos">
+          <div>
+            <p><%= mascot.location %></p>
+          </div>
+          <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
+        </div>
       </div>
     <% end %>
   </div>
