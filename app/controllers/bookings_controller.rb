@@ -23,6 +23,7 @@ before_action :set_mascot, only: [:create]
       redirect_to mascot_path(@mascot)
     else
       render 'mascots/show', status: :unprocessable_entity
+
     end
   end
 

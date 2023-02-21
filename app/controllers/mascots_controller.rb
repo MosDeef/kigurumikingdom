@@ -6,10 +6,13 @@ class MascotsController < ApplicationController
 
   def new
     @mascot = Mascot.new
+    authorize @mascot
   end
 
   def create
     @mascot = Mascot.new(mascot_params)
+    @mascot.user = current_user
+    authorize @mascot
     if @mascot.save
       redirect_to mascot_path(@mascot)
     else

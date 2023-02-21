@@ -17,5 +17,4 @@ class MascotPolicy < ApplicationPolicy
   def create?
     true
   end
-
 end
