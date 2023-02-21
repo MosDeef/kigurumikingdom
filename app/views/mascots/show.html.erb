@@ -1,18 +1,25 @@
 <div class="container my-4">
-  <div class="card-product">
-    <%= image_tag @mascot.photo %>
-    <div class="card-trip-infos my-4">
-      <h2><%= @mascot.name %></h2>
-      <p><%= @mascot.description %></p>
+  <div class="row">
+    <div class="col-6">
+      <%= image_tag @mascot.photo, class:'w-100' %>
+    </div>
+    <div class="col-6">
+      <div class="card-product-infos">
+        <h2><%= @mascot.name %></h2>
+        <p><%= @mascot.description %></p>
+      </div>
+      <%= render 'bookings/form' %>
     </div>
   </div>
   <div class="container">
     <% @mascot.bookings.each do |booking| %>
-      <h2>Booked for <%= booking.date %></h2>
+      <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+        <span><strong>Booked for </strong> 🎉 <%= booking.date %></span>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
     <% end %>
   </div>
-  <%= render 'bookings/form' %>
-  <div class="card-product my-5">
-    <%= link_to 'See the other mascots', mascots_path  %>
-  </div>
+  <%= link_to 'Home', mascots_path  %>
 </div>
