@@ -20,6 +20,7 @@ before_action :set_mascot, only: [:create]
     @booking.user = current_user
     authorize @booking
     if @booking.save
+      flash[:notice] = "Booked for #{@booking.date}"
       redirect_to mascot_path(@mascot)
     else
       render 'mascots/show', status: :unprocessable_entity
