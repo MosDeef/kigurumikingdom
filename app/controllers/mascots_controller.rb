@@ -1,7 +1,7 @@
 class MascotsController < ApplicationController
 
   def index
-    @mascots = Mascot.order(:name)
+    @mascots = policy_scope(Mascot)
   end
 
   def new
@@ -22,8 +22,11 @@ class MascotsController < ApplicationController
 
   def show
     @mascot = Mascot.find(params[:id])
+    @booking = Booking.new
     authorize @mascot
   end
+
+
 
   private
 

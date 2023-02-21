@@ -87,7 +87,7 @@ mascots_data = [{
   photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676881676/hokkaido-mascot1_hd11we.jpg"
 },
 {
-  name: "White Underground Kingdom Ninja Jinja",
+  name: "Ninja Jinja",
   description: "The ninja Jinenja of the kingdom (commonly known as Neba-land), which is said to be located in the depths of Shiroi City, Chiba Prefecture, is given the product of his hometown, and goes to rescue Princess Tororo, who was kidnapped by someone. started special training.",
   location: "Shiroi City, Chiba Prefecture",
   price: 5000,

@@ -4,17 +4,17 @@ class MascotPolicy < ApplicationPolicy
     def resolve
       scope.order(:name)
     end
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-    def new?
-      create?
-    end
+  def new?
+    create?
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
   end
 end

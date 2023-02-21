@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+before_action :set_mascot, only: [:create]
 
   def index
     @bookings = Booking.all
@@ -16,10 +17,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.mascot = @mascot
+    @booking.user = current_user
+    authorize @booking
     if @booking.save
-      redirect_to mascot_bookings_path(@mascot)
+      redirect_to mascot_path(@mascot)
     else
-      render :new, status: :unprocessable_entity
+      render 'mascots/show', status: :unprocessable_entity
+
     end
   end
 
