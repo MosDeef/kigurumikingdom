@@ -101,47 +101,68 @@ mascots_data = [{
   price: 5000,
   user: User.all.sample,
   photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676882609/00002585_hbni0f.jpg"
-  }]
-# {
-#   name: "",
-#   description: "",
-#   location: "",
-#   price: 5000,
-#   user: User.all.sample,
-#   photo_url: ""
-# },
-# {
-#   name: "",
-#   description: "",
-#   location: "",
-#   price: 5000,
-#   user: User.all.sample,
-#   photo_url: ""
-# },
-# {
-#   name: "",
-#   description: "",
-#   location: "",
-#   price: 5000,
-#   user: User.all.sample,
-#   photo_url: ""
-# },
-# {
-#   name: "",
-#   description: "",
-#   location: "",
-#   price: 5000,
-#   user: User.all.sample,
-#   photo_url: ""
-# },
-# {
-#   name: "",
-#   description: "",
-#   location: "",
-#   price: 5000,
-#   user: User.all.sample,
-#   photo_url: ""
-# }]
+  },
+{
+  name: "Tureppon",
+  description: "Tureppon, the mascot of Upopoy National Ainu Museum and Park in Hokkaido, is a bulb of turep, a plant from which the Ainu people extract starch to use in medicines and cooking.",
+  location: "Upopoy, Hokkaido",
+  price: 5000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676967602/TureppoN_tg1b8c.png"
+},
+{
+  name: "Sobacchi",
+  description: "Sobacchi, has a bowl of soba noodles for a head, is a mascot from  Prefecture.",
+  location: "Iwate",
+  price: 5000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676967875/Screenshot_2023-02-21_at_5.23.43_pm_paa8at.png"
+},
+{
+  name: "Direct-kun",
+  description: "Direct-kun is a box of Ryukakusan Direct throat medicine wearing a top hat and bow tie.",
+  location: "Tokyo",
+  price: 5000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676968228/Direct-kun_oedazk.png"
+},
+{
+  name: "Sanomaru",
+  description: "Sanomaru, the official mascot of Sano City, Tochigi Prefecture, was named the softest of them all and snuggled the top spot in the Yuru Kyara Grandprix 2013. Sanomaru beat more than 1,500 equally cuddly characters which represented other municipalities and corporations. ",
+  location: "Tochigi",
+  price: 1000000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676968353/sanomaru_w4soza.jpg"
+},
+{
+  name: "Sakurakki",
+  description: "This is Sakurakki-, the RP character for tourism in the town of Ogawara, Miyagi Prefecture!
+  His head is the town flower “Sakura”, his face is the town bird “Swan”, and his body is the town tree “Ume”!
+  He’s a fairy who makes lucky flowers bloom!
+  My hobbies are walking, exploring and eating!
+  Nice to meet you all!",
+  location: "Ogawara, Miyagi",
+  price: 5000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676968637/sakulucky_o9jzkk.png"
+},
+{
+  name: "Go-chan",
+  description: "Go-chan is the “longevity ambassador” for Okinawa Island, and scares people into being healthy. It works—Okinawans live the longest in the world.",
+  location: "Okinawa",
+  price: 15000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676968896/DlvFsfgU4AEUlcL_sxgrwx.jpg"
+},
+{
+  name: "Unberto",
+  description: "This philosophical poop is the  mascot for the Tokyo Unko Museum.",
+  location: "Tokyo",
+  price: 5000,
+  user: User.all.sample,
+  photo_url: "https://res.cloudinary.com/dumhjhc95/image/upload/v1676969072/Unberto_mfmdhi.jpg"
+}
+]
 mascots_data.each do |mascothash|
   mascot = Mascot.find_or_create_by!(mascothash.except(:photo_url))
   unless mascot.photo.attached?
