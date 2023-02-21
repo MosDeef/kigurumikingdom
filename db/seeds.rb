@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "adding users"
+Mascot.destroy_all
 User.destroy_all
 User.create!(nickname: "chierikii", email: "kiichieri@gmail.com", password: "123123")
 User.create(nickname: "gillaryb", email: "gilarybacnis@gmail.com", password: "123123")
@@ -141,16 +142,13 @@ mascots_data = [{
 #   user: User.all.sample,
 #   photo_url: ""
 # }]
-
 mascots_data.each do |mascothash|
   mascot = Mascot.find_or_create_by!(mascothash.except(:photo_url))
   unless mascot.photo.attached?
     file = URI.open(mascothash[:photo_url])
-    photo_filename = File.basename(mascothash[:photo_url])
-    mascot.photo.attach(io: file, filename: photo_filename, content_type: "image/png")
+    mascot.photo.attach(io: file, filename: "#{mascot.name}.png", content_type: "image/png")
     mascot.save
   end
 end
-
 
 puts "done"
