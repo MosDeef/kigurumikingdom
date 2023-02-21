@@ -26,11 +26,9 @@ class MascotsController < ApplicationController
     authorize @mascot
   end
 
-
-
   private
 
   def mascot_params
-    params.require(:mascot).permit(:name, :photo)
+    params.require(:mascot).permit(:name, :description, :location, :price, :photo)
   end
 end
