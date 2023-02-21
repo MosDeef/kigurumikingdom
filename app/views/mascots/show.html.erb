@@ -8,11 +8,11 @@
   </div>
   <div class="container">
     <% @mascot.bookings.each do |booking| %>
-      <p><%= booking.date %></p>
+      <h2>Booked for <%= booking.date %></h2>
     <% end %>
   </div>
-  <div class="card-product">
+  <%= render 'bookings/form' %>
+  <div class="card-product my-5">
     <%= link_to 'See the other mascots', mascots_path  %>
   </div>
-  <%= render 'bookings/form' %>
 </div>
