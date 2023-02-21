@@ -1,5 +1,9 @@
 <div class="container mt-3 form-container">
-  <h1>Add a mascot</h1>
-  <%= render 'mascots/form', mascot: @mascot %>
-  <p><%= link_to 'Back to mascots', mascots_path  %></p>
+  <div class="row justify-content-center">
+    <div class="col col-sm-8 col-md-6">
+      <h1>Add a mascot</h1>
+      <%= render 'mascots/form', mascot: @mascot %>
+      <p><%= link_to 'Back to mascots', mascots_path  %></p>
+    </div>
+  </div>
 </div>
