@@ -58,9 +58,9 @@
     </select>
     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>NAME</option>
-      <option value="1">Marimokkori</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <% @mascots.each do |mascot| %>
+        <option selected>  <%= mascot.name %> </option>
+      <% end %>
     </select>
     <a class="btn btn-ghost" href="#">SEARCH</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
