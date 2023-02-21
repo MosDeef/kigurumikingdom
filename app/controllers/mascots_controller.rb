@@ -1,7 +1,7 @@
 class MascotsController < ApplicationController
 
   def index
-    @mascots = policy_scope(Mascot)
+    @mascots = policy_scope(Mascot).order(:name)
   end
 
   def new
