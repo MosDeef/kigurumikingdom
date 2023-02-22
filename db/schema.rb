@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_20_091819) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_023326) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_091819) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "duration"
     t.index ["mascot_id"], name: "index_bookings_on_mascot_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -56,12 +57,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_091819) do
   create_table "mascots", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "duration"
     t.string "location"
     t.integer "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_mascots_on_user_id"
   end
 

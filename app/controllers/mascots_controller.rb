@@ -2,6 +2,13 @@ class MascotsController < ApplicationController
 
   def index
     @mascots = policy_scope(Mascot).order(:name)
+    @markers = @mascots.geocoded.map do |mascot|
+      {
+        lat: mascot.latitude,
+        lng: mascot.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot})
+      }
+    end
   end
 
   def new

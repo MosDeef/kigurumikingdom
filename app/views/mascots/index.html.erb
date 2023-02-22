@@ -1,17 +1,12 @@
-<<<<<<< Updated upstream
 <div class="container m-5">
   <h1 class="text-center">Mascots</h1>
 </div>
-<div class="container my-8">
-  <div class="cards">
-=======
 <div class="main-container">
   <div class="cards p-4">
->>>>>>> Stashed changes
     <% @mascots.each do |mascot| %>
       <%= link_to mascot_path(mascot), class: 'text-light text-decoration-none' do  %>
-        <div class="card-trip">
-          <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>
+        <div class="card-trip rounded-4">
+          <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3' %>
           <h2 class="text-center pt-3"><%= mascot.name %></h2>
           <div class="card-trip-infos">
             <div>
@@ -23,14 +18,9 @@
       <% end %>
     <% end %>
   </div>
-<<<<<<< Updated upstream
-=======
   <div class="sticky-top" style="width: 50vw; height: 100vh;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
->>>>>>> Stashed changes
 </div>
-
-<%# style="width: 50vw; height: 100vh;" %>

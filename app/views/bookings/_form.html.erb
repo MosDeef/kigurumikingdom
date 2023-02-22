@@ -1,7 +1,8 @@
 <div class="container form-container my-10 border p-3 bg-white">
-  <h1>Book me</h1>
+  <h1>Book <%= @mascot.name %>!</h1>
   <%= simple_form_for [@mascot, @booking] do |f| %>
     <%= f.input :date, html5: true, class: 'form-control' %>
+    <%= f.input :duration, html5: true, class: 'form-control', input_html:{data:{action:"change->total-price#calculate",total_price_target:"duration"}} %>
     <%= f.submit "Click to confirm", class: "btn btn-primary" %>
   <% end %>
 </div>
