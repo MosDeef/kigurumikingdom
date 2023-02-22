@@ -1,9 +1,9 @@
-<div class="card-trip">
+<div class="card-trip info-card rounded-3">
   <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>
-  <h2 class="text-center pt-3 text-light text-decoration-none><%= link_to mascot.name, mascot_path(mascot) %></h2>
+  <h2 class="text-center pt-3"><%= link_to mascot.name, mascot_path(mascot), class:'text-decoration-none text-light' %></h2>
   <div class="card-trip-infos">
     <div>
     </div>
-    <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
+    <p class="card-trip-pricing opacity-50 text-light">From ¥<%= mascot.price %>~</p>
   </div>
 </div>
