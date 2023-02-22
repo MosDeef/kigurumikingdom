@@ -2,6 +2,12 @@ class MascotsController < ApplicationController
 
   def index
     @mascots = policy_scope(Mascot).order(:name)
+    @markers = @mascots.geocoded.map do |mascot|
+      {
+        lat: mascot.latitude,
+        lng: mascot.longitude
+      }
+    end
   end
 
   def new
