@@ -81,5 +81,6 @@ end
 # gem devise
 gem "devise"
 
-# gem pundit 
+# gem pundit
 gem 'pundit'
+
