@@ -5,3 +5,8 @@
 .mapboxgl-popup-content {
   text-align: center;
 }
+.mapboxgl-canvas {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
