@@ -1,0 +1,33 @@
+.mapboxgl-popup {
+  max-width: 160px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  padding:0 !important;
+  margin:0;
+  background-color: none;
+}
+
+.mapboxgl-popup-close-button{
+  outline: none;
+  color:crimson;
+  font-size: 10px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+.mapboxgl-canvas {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.map-index{
+  position: sticky;
+  top: 50px;
+  width: 50vw;
+  height: 100vh;
+}

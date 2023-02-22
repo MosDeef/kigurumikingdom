@@ -2,6 +2,13 @@ class MascotsController < ApplicationController
 
   def index
     @mascots = policy_scope(Mascot).order(:name)
+    @markers = @mascots.geocoded.map do |mascot|
+      {
+        lat: mascot.latitude,
+        lng: mascot.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot})
+      }
+    end
   end
 
   def new
@@ -14,7 +21,7 @@ class MascotsController < ApplicationController
     @mascot.user = current_user
     authorize @mascot
     if @mascot.save
-      redirect_to mascot_path(@mascot)
+      redirect_to booking_path
     else
       render :new, status: :unprocessable_entity
     end

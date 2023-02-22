@@ -2,7 +2,7 @@
   <h1>Book <%= @mascot.name %>!</h1>
   <%= simple_form_for [@mascot, @booking] do |f| %>
     <%= f.input :date, html5: true, class: 'form-control' %>
-    <%= f.input :duration, html5: true, class: 'form-control', input_html:{data:{action:"change->total-price#calculate",total_price_target:"duration"}} %>
+    <%= f.input :duration, collection: 1..24,label: 'For how many hours?', html5: true, class: 'form-control', input_html:{data:{action:"change->total-price#calculate",total_price_target:"duration"}}, include_blank: false %>
     <div class="fs-4 d-flex align-items-end justify-content-between">
       <%= f.submit "Click to confirm", class: "btn btn-primary" %>
       <span>total price ¥<span data-total-price-target="total">0</span></span>
