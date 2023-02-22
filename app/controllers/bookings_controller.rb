@@ -22,7 +22,7 @@ before_action :set_mascot, only: [:create]
     authorize @booking
     if @booking.save
       flash[:notice] = "Booked for #{@booking.date}"
-      redirect_to mascot_path(@mascot)
+      redirect_to bookings_path
     else
       render 'mascots/show', status: :unprocessable_entity
 
@@ -36,6 +36,6 @@ before_action :set_mascot, only: [:create]
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :mascot_id, :user_id)
+    params.require(:booking).permit(:date, :duration, :mascot_id, :user_id)
   end
 end

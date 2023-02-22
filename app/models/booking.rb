@@ -5,8 +5,8 @@ class Booking < ApplicationRecord
   validate :check_future_date
 
   def check_future_date
-    if date < Date.today
-      errors.add(:date, "can't book in the past, dude")
+    if date && date < Date.today
+      errors.add(:date, "can't book in the past, fren")
     end
   end
 end
