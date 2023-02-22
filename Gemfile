@@ -85,3 +85,4 @@ gem "devise"
 
 # gem pundit
 gem 'pundit'
+
