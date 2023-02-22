@@ -3,6 +3,5 @@ class PagesController < ApplicationController
   def home
     @mascots = Mascot.all
     @carousel_items = @mascots.each_slice(3)
-    
   end
 end

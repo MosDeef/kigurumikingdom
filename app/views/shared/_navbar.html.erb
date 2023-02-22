@@ -6,62 +6,26 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-      <option selected>WHERE</option>
-      <option value="1">Hokkaido</option>
-      <option value="2">Aomori</option>
-      <option value="3">Iwate</option>
-      <option value="4">Miyagi</option>
-      <option value="5">Akita</option>
-      <option value="6">Yamagata</option>
-      <option value="7">Fukushima</option>
-      <option value="8">Ibaragi</option>
-      <option value="9">Tochigi</option>
-      <option value="10">Gunma</option>
-      <option value="11">Saitama</option>
-      <option value="12">Chiba</option>
-      <option value="13">Tokyo</option>
-      <option value="14">Kanagawa</option>
-      <option value="15">Niigata</option>
-      <option value="16">Toyama</option>
-      <option value="17">Ishikawa</option>
-      <option value="18">Fukui</option>
-      <option value="19">Yamanashi</option>
-      <option value="20">Nagano</option>
-      <option value="21">Gifu</option>
-      <option value="22">Shizuoka</option>
-      <option value="23">Aichi</option>
-      <option value="24">Mie</option>
-      <option value="25">Saga</option>
-      <option value="26">Kyoto</option>
-      <option value="27">Oosaka</option>
-      <option value="28">Hyogo</option>
-      <option value="29">Wakayama</option>
-      <option value="30">Tottori</option>
-      <option value="31">Shimane</option>
-      <option value="32">Okayama</option>
-      <option value="33">Hiroshima</option>
-      <option value="34">Ymamaguti</option>
-      <option value="35">Yamaguchi</option>
-      <option value="36">Tokushima</option>
-      <option value="37">Kagawa</option>
-      <option value="38">Aichi</option>
-      <option value="39">Kouchi</option>
-      <option value="40">Fukuoka</option>
-      <option value="41">Saga</option>
-      <option value="42">Nagasaki</option>
-      <option value="43">Kumamoto</option>
-      <option value="44">Ooita</option>
-      <option value="45">Miyazaki</option>
-      <option value="46">Kagoshima</option>
-      <option value="47">Okinawa</option>
-    </select>
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-      <option selected>NAME</option>
-      <% @mascots.each do |mascot| %>
-        <option selected>  <%= mascot.name %> </option>
-      <% end %>
-    </select>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width:500px">
+        LOCATION
+      </button>
+      <ul class="dropdown-menu">
+        <% @mascots.each do |mascot| %>
+          <li> <%= link_to mascot.location, mascot_path(mascot),class:"dropdown-item" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width:500px">
+        NAME
+      </button>
+      <ul class="dropdown-menu">
+        <% @mascots.each do |mascot| %>
+          <li> <%= link_to mascot.name, mascot_path(mascot),class:"dropdown-item" %></li>
+        <% end %>
+      </ul>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
