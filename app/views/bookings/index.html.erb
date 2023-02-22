@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <h1>My Bookings </h1>
+  </div>
+  <div class="cards">
+    <div class="row ">
+      <% @bookings_per_mascot.each do |mascot, bookings| %>
+        <div class="card-product">
+          <%= mascot.photo.attached? ? cl_image_tag(mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
+          <div class="card-product-infos">
+            <h2><%= mascot.name %></h2>
+            <p> <%= mascot.location %></p>
+          </div>
+        </div>
+        <% bookings.each do |booking| %>
+          <p><%= booking.date %></p>
+          <p><%= booking.status %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
