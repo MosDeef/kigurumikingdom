@@ -1,0 +1,9 @@
+<div class="card-trip">
+  <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>
+  <h2 class="text-center pt-3"><%= mascot.name %></h2>
+  <div class="card-trip-infos">
+    <div>
+    </div>
+    <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
+  </div>
+</div>

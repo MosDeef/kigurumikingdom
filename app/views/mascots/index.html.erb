@@ -1,25 +1,27 @@
 <div class="container m-5">
   <h1 class="text-center">Mascots</h1>
 </div>
-<div class="container my-8">
-  <div class="cards">
-    <% @mascots.each do |mascot| %>
-      <%= link_to mascot_path(mascot), class: 'text-light text-decoration-none' do  %>
-        <div class="card-trip">
-          <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>
-          <h2 class="text-center pt-3"><%= mascot.name %></h2>
-          <div class="card-trip-infos">
-            <div>
-              <p><%= mascot.location %></p>
-            </div>
-            <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-<div style="width: 100%; height: 600px;"
+<div class="flex-container">
+  <div style="width: 600px; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="container my-8">
+    <div class="cards">
+      <% @mascots.each do |mascot| %>
+        <%= link_to mascot_path(mascot), class: 'text-light text-decoration-none' do  %>
+          <div class="card-trip">
+            <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg' %>
+            <h2 class="text-center pt-3"><%= mascot.name %></h2>
+            <div class="card-trip-infos">
+              <div>
+                <p><%= mascot.location %></p>
+              </div>
+              <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

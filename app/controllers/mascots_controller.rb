@@ -5,7 +5,8 @@ class MascotsController < ApplicationController
     @markers = @mascots.geocoded.map do |mascot|
       {
         lat: mascot.latitude,
-        lng: mascot.longitude
+        lng: mascot.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot})
       }
     end
   end
