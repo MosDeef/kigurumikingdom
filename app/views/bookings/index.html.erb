@@ -13,7 +13,7 @@
           </div>
         </div>
         <% bookings.each do |booking| %>
-          <p><%= booking.date %></p>
+          <p><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
           <p><%= booking.status %></p>
         <% end %>
       <% end %>
