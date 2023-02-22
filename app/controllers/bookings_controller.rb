@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
 before_action :set_mascot, only: [:create]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).joins(:mascot).where(mascot: { user: current_user })
+    @bookings_per_mascot = @bookings.group_by(&:mascot)
   end
 
   def show

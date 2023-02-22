@@ -9,3 +9,7 @@ application.register("hello", HelloController)
 
 import TotalPriceController from "./total_price_controller"
 application.register("total-price", TotalPriceController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
