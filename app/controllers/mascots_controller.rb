@@ -21,7 +21,7 @@ class MascotsController < ApplicationController
     @mascot.user = current_user
     authorize @mascot
     if @mascot.save
-      redirect_to booking_path
+      redirect_to mascot_path(@mascot)
     else
       render :new, status: :unprocessable_entity
     end
