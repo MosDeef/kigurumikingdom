@@ -13,4 +13,8 @@ class Booking < ApplicationRecord
       errors.add(:date, "can't book in the past, fren")
     end
   end
+
+  # def display_duration
+  #   #  (duration -
+  # end
 end

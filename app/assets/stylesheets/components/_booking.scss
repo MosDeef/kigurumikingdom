@@ -1,8 +1,10 @@
 .booking {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 16px 0;
+  background-color: white;
+  padding: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
   .booking-left {
     display: flex;
@@ -24,6 +26,11 @@
   }
 }
 
+.booking img{
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
 .booking-info {
   display: flex;
   flex-direction: column;
