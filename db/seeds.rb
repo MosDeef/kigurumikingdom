@@ -171,6 +171,14 @@ mascots_data.each do |mascothash|
     mascot.photo.attach(io: file, filename: "#{mascot.name}.png", content_type: "image/png")
     mascot.save
   end
+  10.times do
+    review = Review.new(comment: "Cute and friendly Mascot!", rating: rand(0..5))
+    review.user = User.all.sample
+    review.mascot = mascot
+    review.save!
+  end
 end
+
+
 
 puts "done"

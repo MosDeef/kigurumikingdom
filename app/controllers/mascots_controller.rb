@@ -30,6 +30,7 @@ class MascotsController < ApplicationController
   def show
     @mascot = Mascot.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
     authorize @mascot
   end
 

@@ -1,6 +1,7 @@
 class Mascot < ApplicationRecord
   has_one_attached :photo
   has_many :bookings, dependent: :destroy
+  has_many :reviews
   belongs_to :user
   geocoded_by :location
   validates :name, :location, presence: true
