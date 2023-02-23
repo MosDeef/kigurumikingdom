@@ -2,8 +2,10 @@ class BookingsController < ApplicationController
 before_action :set_mascot, only: [:create]
 
   def index
-    @bookings = policy_scope(Booking).joins(:mascot)
+    @bookings = policy_scope(Booking).future.joins(:mascot)
     @bookings_per_mascot = @bookings.group_by(&:mascot)
+    @past_bookings = policy_scope(Booking).past
+
   end
 
   def show
