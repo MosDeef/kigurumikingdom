@@ -102,6 +102,11 @@
   object-fit: cover;
 }
 
+.booking-card-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
