@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :mascots, only: %i[index show new create] do
     resources :bookings, only: %i[create]
+    resources :reviews, except: %i[show index]
   end
   resources :bookings, only: %i[index update]
   namespace :owner do
