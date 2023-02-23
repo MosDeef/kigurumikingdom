@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
   validates :date, presence: true
   validate :check_future_date
 
+  enum :status, { pending: 0, accepted: 1, declined: 3 }
+
   def check_future_date
     if date && date < Date.today
       errors.add(:date, "can't book in the past, fren")
