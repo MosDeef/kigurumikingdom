@@ -1,0 +1,10 @@
+<div class="container">
+  <div>
+    <h1>My Bookings </h1>
+  </div>
+  <% @bookings.each do |booking| %>
+    <%= booking.user.nickname %>
+    <%= booking.status %>
+  <% end %>
+</div>
+</div>

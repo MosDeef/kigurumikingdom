@@ -6,7 +6,7 @@ User.destroy_all
 User.create!(nickname: "chierikii", email: "kiichieri@gmail.com", password: "123123")
 User.create(nickname: "gillaryb", email: "gilarybacnis@gmail.com", password: "123123")
 User.create(nickname: "Anri009", email: "anto199309@gmail.com", password: "123123")
-User.create(nickname: "MosDeef", email: "james.deeth@gmail.com", password: "123123")
+jim = User.create(nickname: "MosDeef", email: "james.deeth@gmail.com", password: "123123")
 
 puts "making Mascots"
 
@@ -172,5 +172,11 @@ mascots_data.each do |mascothash|
     mascot.save
   end
 end
+
+puts "making bookings"
+10.times do
+Booking.create(user: jim, mascot: Mascot.all.sample)
+end
+
 
 puts "done"
