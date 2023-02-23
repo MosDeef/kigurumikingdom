@@ -9,6 +9,13 @@ class MascotsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot})
       }
     end
+
+    if params[:query].present?
+      @mascots = Mascot.search(params[:query])
+    else
+      @mascots = Mascot.all
+    end
+
   end
 
   def new
@@ -30,6 +37,7 @@ class MascotsController < ApplicationController
   def show
     @mascot = Mascot.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
     authorize @mascot
   end
 

@@ -1,0 +1,12 @@
+<div class="container mt-3">
+  <h4>Add Review</h4>
+  <%= simple_form_for [@mascot, @review] do |f| %>
+    <%= f.input :comment, wrapper_html: { style:"margin-bottom: 0 !important"} %>
+    <div class="star-rating mb-4">
+      <% 5.times do |i| %>
+        <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+      <% end %>
+    </div>
+    <%= f.submit class: 'btn btn-primary mt-2' %>
+  <% end %>
+</div>
