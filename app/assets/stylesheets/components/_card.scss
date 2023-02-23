@@ -15,7 +15,7 @@
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: white;
+  background:#FFFFEB;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -106,6 +106,12 @@
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.booking-card{
+  background-color:#B2AADA;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
