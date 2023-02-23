@@ -9,8 +9,5 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :bookings, only: [:index]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :bookings, only: [:update]
 end

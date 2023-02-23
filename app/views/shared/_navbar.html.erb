@@ -1,31 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to mascots_path, class: "navbar-brand" do %>
+      <%= image_tag "https://res.cloudinary.com/dumhjhc95/image/upload/v1676967602/TureppoN_tg1b8c.png" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width:500px">
-        LOCATION
-      </button>
-      <ul class="dropdown-menu">
-        <% @mascots.each do |mascot| %>
-          <li> <%= link_to mascot.location, mascot_path(mascot),class:"dropdown-item" %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width:500px">
-        NAME
-      </button>
-      <ul class="dropdown-menu">
-        <% @mascots.each do |mascot| %>
-          <li> <%= link_to mascot.name, mascot_path(mascot),class:"dropdown-item" %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= form_with url: mascots_path, method: :get, class: "d-flex w-50 rounded" do %>
+      <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a mascot"
+  %>
+      <%= submit_tag "Search", class: "btn btn-ghost-s" %>
+    <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -35,7 +23,8 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://mondomascots.com/wp-content/uploads/2023/01/image2-1.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "My bookings (as mascot enjoyer)", bookings_path, class: "dropdown-item" %>
+              <%= link_to "My bookings (as mascot owner )", owner_bookings_path, class: "dropdown-item" %>
               <%= link_to 'Add a mascot', new_mascot_path, class: 'dropdown-item'  %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

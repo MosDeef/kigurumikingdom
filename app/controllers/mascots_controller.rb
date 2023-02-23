@@ -9,6 +9,13 @@ class MascotsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot})
       }
     end
+
+    if params[:query].present?
+      @mascots = Mascot.search(params[:query])
+    else
+      @mascots = Mascot.all
+    end
+
   end
 
   def new

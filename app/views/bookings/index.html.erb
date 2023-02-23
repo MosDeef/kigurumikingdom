@@ -1,22 +1,38 @@
-<div class="container">
-  <div>
-    <h1>My Bookings </h1>
-  </div>
+<div class="container my-5">
+  <h2>My Bookings </h2>
   <div class="cards">
-    <div class="row ">
-      <% @bookings_per_mascot.each do |mascot, bookings| %>
-        <div class="card-product">
+    <% @bookings_per_mascot.each do |mascot, bookings| %>
+      <div>
+        <h3><%= mascot.name %></h3>
+        <div class="card-product d-flex m-3">
           <%= mascot.photo.attached? ? cl_image_tag(mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
           <div class="card-product-infos">
-            <h2><%= mascot.name %></h2>
-            <p> <%= mascot.location %></p>
+            <p><%= mascot.location %></p>
+            <p> ¥<%= mascot.price %></p>
+          </div>
+          <div>
+            <% bookings.each do |booking| %>
+              <p><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+              <p><%= booking.status %></p>
+            <% end %>
           </div>
         </div>
-        <% bookings.each do |booking| %>
-          <p><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
-          <p><%= booking.status %></p>
-        <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <hr>
+  <h3> Past bookings</h3>
+  <div class ="booking-card-grid">
+    <% @past_bookings.each do |booking| %>
+      <div class="card-product">
+        <%= booking.mascot.photo.attached? ? cl_image_tag(booking.mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
+        <div class="card-product-infos">
+          <h2><%= booking.date.strftime("%b %e, %l:%M %p")%></h2>
+          <p><%= booking.mascot.price %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
