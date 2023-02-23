@@ -25,7 +25,16 @@ before_action :set_mascot, only: [:create]
       redirect_to bookings_path
     else
       render 'mascots/show', status: :unprocessable_entity
+    end
+  end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to owner_bookings_path
+    else
+      #TODO ficx this
+      render 'mascots/show', status: :unprocessable_entity
     end
   end
 
@@ -36,6 +45,6 @@ before_action :set_mascot, only: [:create]
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :duration, :mascot_id, :user_id)
+    params.require(:booking).permit(:status, :date, :duration, :mascot_id, :user_id)
   end
 end

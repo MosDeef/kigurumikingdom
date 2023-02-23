@@ -1,10 +1,24 @@
 <div class="container">
   <div>
-    <h1>My Bookings </h1>
+    <h1>Times your mascots do stuff </h1>
   </div>
   <% @bookings.each do |booking| %>
-    <%= booking.user.nickname %>
-    <%= booking.status %>
+    <p>with <%= booking.user.email %></p>
+    <p>@ <%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+    <div class="booking-actions">
+      <% if booking.pending? %>
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+          <%= f.submit 'Accept', class: 'btn btn-info' %>
+        <% end %>
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+          <%= f.submit 'Reject', class: 'btn btn-light' %>
+        <% end %>
+      <% else %>
+        <p class='booking-tag'><%= booking.status %></p>
+      <% end %>
+    </div>
   <% end %>
 </div>
 </div>
