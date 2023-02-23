@@ -7,4 +7,12 @@ class Mascot < ApplicationRecord
   validates :description, length: { minimum: 5 }
   after_validation :geocode, if: :will_save_change_to_location?
 
+
+  include PgSearch::Model
+  pg_search_scope :search,
+  against: [ :name, :location, :description, :price],
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
