@@ -1,19 +1,26 @@
 <div class="container my-5">
-  <h2>My Bookings </h2>
+  <div class="p-3">
+    <h2>My Bookings </h2>
+  </div>
   <div class="cards">
-    <% @bookings_per_mascot.each do |mascot, bookings| %>
-      <div>
-        <h3><%= mascot.name %></h3>
+    <% @bookings.each do | booking| %>
+      <div class="booking-card rounded-3">
+        <h3 class="py-3"><%= booking.mascot.name %></h3>
         <div class="card-product d-flex m-3">
-          <%= mascot.photo.attached? ? cl_image_tag(mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
+          <%= booking.mascot.photo.attached? ? cl_image_tag(booking.mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
           <div class="card-product-infos">
-            <p><%= mascot.location %></p>
-            <p> ¥<%= mascot.price %></p>
+            <p><%= booking.mascot.location %></p>
+            <p> ¥<%= booking.mascot.price * booking.duration %></p>
+            <p>per day</p>
           </div>
           <div>
-            <% bookings.each do |booking| %>
-              <p><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
-              <p><%= booking.status %></p>
+            <p><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
+            <% if booking.pending?  %>
+              <p class="btn btn-warning rounded-5"><%= booking.status %></p>
+            <% elsif booking.accepted? %>
+              <p class="btn btn-success rounded-5"><%= booking.status %></p>
+            <% elsif booking.rejected? %>
+              <p class="btn btn-danger rounded-5"><%= booking.status %></p>
             <% end %>
           </div>
         </div>
