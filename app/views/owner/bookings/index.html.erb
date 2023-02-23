@@ -8,8 +8,7 @@
         <div class='booking-left'>
           <div class="booking-info">
             <div class="booking-info-title">
-              <%= booking.user.nickname %>
-              <%= booking.user.email %>
+              <%= link_to booking.user.nickname, booking.user.email %>
             </div>
             <div class="booking-info-details">
               <%= booking.date %>
