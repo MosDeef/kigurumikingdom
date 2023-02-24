@@ -52,8 +52,9 @@ gem "autoprefixer-rails"
 gem "cloudinary"
 gem "font-awesome-sass", "~> 6.1"
 gem "geocoder"
-gem "simple_form", github: "heartcombo/simple_form"
 gem "pg_search"
+gem "simple_calendar", "~> 2.4"
+gem "simple_form", github: "heartcombo/simple_form"
 
 
 group :development, :test do
