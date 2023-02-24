@@ -178,7 +178,4 @@ mascots_data.each do |mascothash|
     review.save!
   end
 end
-
-
-
 puts "done"

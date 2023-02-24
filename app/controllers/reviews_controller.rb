@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
     def edit
     end
 
-
     def create
       @review = Review.new(review_params)
       @review.user = current_user
@@ -41,6 +40,7 @@ class ReviewsController < ApplicationController
     end
 
     private
+
       def set_review
         @review = Review.find(params[:id])
       end
