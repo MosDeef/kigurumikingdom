@@ -26,6 +26,7 @@ before_action :set_mascot, only: [:create]
       flash[:notice] = "Booked for #{@booking.date}"
       redirect_to bookings_path
     else
+      @review = Review.new
       render 'mascots/show', status: :unprocessable_entity
     end
   end
