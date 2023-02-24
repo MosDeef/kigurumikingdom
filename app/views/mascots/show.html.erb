@@ -6,8 +6,9 @@
     <div class="col-6">
       <h1><%= @mascot.name %></h1>
       <div class="d-flex flex-row bd-highlight mb-3">
-        <div class="fs-2 p-2 bd-highlight">¥<span data-total-price-target="price"><%= @mascot.price %></span>~</div>
-        <div class="fs-2 p-2 bd-highlight"><i class="fa-solid fa-map-location-dot"></i>  Meet up location</div>
+        <div class="fs-2 p-2 bd-highlight">¥<span data-total-price-target="price"><%= @mascot.price %></span>~/hour</div>
+        <div class="fs-2 p-2 bd-highlight"><i class="fa-solid fa-map-location-dot"></i>  <%= @mascot.location %>
+        </div>
       </div>
       <div class="card-product-infos">
         <p><%= @mascot.description %></p>
@@ -23,9 +24,10 @@
     </div>
   </div>
   <section>
-    <div class="row text-center">
+
+    <div class="row border-top text-center mt-5 ">
       <% @mascot.reviews.last(3).each do |review| %>
-        <div class="col-md-4 mb-5 mb-md-0">
+        <div class="col-md-4 mt-5 mb-5 mb-md-0">
           <h5 class="mb-3"><%= review.user.nickname %></h5>
           <p class="px-xl-3">
             <i class="fas fa-quote-left pe-2"></i>
