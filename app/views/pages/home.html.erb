@@ -1,67 +1,8 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="banner text-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://mondomascots.com/wp-content/uploads/2022/08/FBOdUVsUcAYgkdz.jpg);">
-        <h1 >Welcome to <strong>Kigurumi Kingdom</strong>!</h1>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://mondomascots.com/wp-content/uploads/2019/12/D8c5EoGU8AMyLpq.jpg);">
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://mondomascots.com/wp-content/uploads/2019/12/D5dhAJyXkAAafFd.jpg);">
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <%= render "shared/banner" %>
 </div>
 <div class="container mt-3">
-  <section class="pt-2 pb-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h3 class="text-center mb-3"> Top rating ⭐️⭐️⭐️ </h3>
-        </div>
-        <div class="col-6 text-right">
-        </div>
-        <div class="col-12">
-          <div class="cards p-4">
-            <% @toprated_mascots.each do |mascot| %>
-              <%= link_to mascot_path(mascot), class: 'text-light text-decoration-none' do  %>
-                <div class="card-trip rounded-4">
-                  <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3' %>
-                  <h2 class="text-center pt-3"><%= mascot.name %></h2>
-                  <div class="card-trip-infos">
-                    <div>
-                      <p><%= mascot.location %></p>
-                      <p><%= mascot.average_rating %></p>
-                    </div>
-                    <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
-
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
+  <%= render "shared/carousel" %>
 </div>
 
 <div class="container text-center mt-4">

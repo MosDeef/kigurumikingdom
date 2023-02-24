@@ -6,13 +6,16 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= form_with url: mascots_path, method: :get, class: "d-flex w-50 rounded" do %>
-      <%= text_field_tag :query,
+    <%= form_with url: mascots_path, method: :get, class: "d-flex w-25" do %>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text bg-light rounded-3" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i> </span>
+        <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control border-start-0 bg-light",
     placeholder: "Find a mascot"
-  %>
-      <%= submit_tag "Search", class: "btn btn-ghost-s" %>
+      %>
+      </div>
+      <%#= submit_tag "Search", class: "btn btn-ghost-s" %>
     <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">

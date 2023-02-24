@@ -6,7 +6,8 @@ class MascotsController < ApplicationController
       {
         lat: mascot.latitude,
         lng: mascot.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot})
+        info_window_html: render_to_string(partial: "info_window", locals: {mascot: mascot}),
+        marker_html: render_to_string(partial: "marker", locals: {mascot: mascot})
       }
     end
 

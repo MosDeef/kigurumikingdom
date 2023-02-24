@@ -5,21 +5,21 @@
   <div class="cards">
     <% @bookings.each do | booking| %>
       <div class="booking-card rounded-3">
-        <h3 class="py-3"><%= booking.mascot.name %></h3>
-        <div class="card-product d-flex m-3">
+        <h3 class="py-2"><%= booking.mascot.name %></h3>
+        <div class="card-product m-2">
           <%= booking.mascot.photo.attached? ? cl_image_tag(booking.mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
           <div class="card-product-infos">
-            <p><%= booking.mascot.location %></p>
+            <p><strong><%= booking.mascot.location %></strong></p>
             <p> ¥<%= booking.mascot.price * booking.duration %></p>
-            <p>per day</p>
+            <p><em>per day</em></p>
           </div>
-          <div>
+          <div class="p-4">
             <p><%= booking.date.strftime("%b %e, %l:%M %p") %></p>
             <% if booking.pending?  %>
               <p class="btn btn-warning rounded-5"><%= booking.status %></p>
             <% elsif booking.accepted? %>
               <p class="btn btn-success rounded-5"><%= booking.status %></p>
-            <% elsif booking.rejected? %>
+            <% elsif booking.declined? %>
               <p class="btn btn-danger rounded-5"><%= booking.status %></p>
             <% end %>
           </div>
