@@ -11,6 +11,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user
+    user == record.mascot.user
   end
 end
