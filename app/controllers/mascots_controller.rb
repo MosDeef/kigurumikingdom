@@ -12,9 +12,7 @@ class MascotsController < ApplicationController
     end
 
     if params[:query].present?
-      @mascots = Mascot.search(params[:query])
-    else
-      @mascots = Mascot.all
+      @mascots = @mascots.search(params[:query])
     end
 
   end

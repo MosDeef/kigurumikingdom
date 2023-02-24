@@ -14,6 +14,8 @@
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
     <%= yield %>
-    <%= render "shared/footer" %>
+    <% unless params[:controller] == 'mascots' && params[:action] == 'index' %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>
