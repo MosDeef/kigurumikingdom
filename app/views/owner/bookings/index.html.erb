@@ -5,11 +5,12 @@
   <%= month_calendar(events: @bookings, attribute: :date) do |date, bookings| %>
     <%= date %>
     <% bookings.each do |booking| %>
-      <div class="booking">
+      <div class="card-product m-3">
         <%= booking.mascot.photo.attached? ? cl_image_tag(booking.mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
-        <div class="d-flex justify-content-between flex-grow-1 align-items-center">
-          <p class="p-2"><%= booking.duration %> hrs</p>
-          <p><%= link_to booking.user.nickname, booking.user.email %></p>
+        <div class="d-flex justify-content-between flex-grow-1 align-items-center card-product-infos">
+          <p class="p-2 no-wrap"><%= pluralize(booking.duration,"hr") %></p>
+          <span><i class="fa-regular fa-timer"></i></span>
+          <p class="p-2"><%= link_to booking.user.nickname, booking.user.email, class: 'text-decoration-none text-dark' %></p>
           <div class="booking-actions">
             <% if booking.pending? %>
               <%= simple_form_for booking do |f| %>
@@ -26,7 +27,5 @@
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
-
+    <% end %>
+  </div>
