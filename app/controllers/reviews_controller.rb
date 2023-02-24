@@ -6,16 +6,16 @@ class ReviewsController < ApplicationController
     def edit
     end
 
-
     def create
       @review = Review.new(review_params)
       @review.user = current_user
       @review.mascot = @mascot
+      @booking = Booking.new
       authorize @review
       if @review.save
         redirect_to @mascot
       else
-        render 'new'
+        render 'mascots/show'
       end
     end
 
@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
     end
 
     private
+
       def set_review
         @review = Review.find(params[:id])
       end
