@@ -5,42 +5,26 @@
   <%= month_calendar(events: @bookings, attribute: :date) do |date, bookings| %>
     <%= date %>
     <% bookings.each do |booking| %>
-      <div class="booking">  <-- We will add some style to the booking class later so let's add it now -->
-          <p><%= booking.user.email %></p>
-        </div>
-      <% end %>
-    <% end %>
-    <div class="bookings">
-      <% @bookings.each do |booking| %>
-        <div class="booking">
-          <%= booking.mascot.photo.attached? ? cl_image_tag(booking.mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
-          <div class="d-flex justify-content-between flex-grow-1 align-items-center">
-            <p class="p-2"><%= booking.mascot.name %></p>
-            <p><%= booking.duration %> hrs</p>
-            <div class="booking-info-title">
-              <p><%= booking.user.nickname %></p>
-              <p><%= booking.user.email %></p>
-            </div>
-            <div class="booking-info-details">
-              <%= booking.date.strftime("%b %e, %l:%M %p") %>
-            </div>
-            <div class="booking-actions">
-              <% if booking.pending? %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                  <%= f.submit 'Accept', class: 'btn btn-success' %>
-                <% end %>
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                  <%= f.submit 'Reject', class: 'btn btn-light' %>
-                <% end %>
-              <% else %>
-                <p class='booking-tag'><%= booking.status %></p>
+      <div class="booking">
+        <%= booking.mascot.photo.attached? ? cl_image_tag(booking.mascot.photo.key, class: 'rounded-3') : image_tag('https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3') %>
+        <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+          <p class="p-2"><%= booking.duration %> hrs</p>
+          <p><%= link_to booking.user.nickname, booking.user.email %></p>
+          <div class="booking-actions">
+            <% if booking.pending? %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                <%= f.submit 'Accept', class: 'btn btn-success' %>
               <% end %>
-            </div>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                <%= f.submit 'Reject', class: 'btn btn-light' %>
+              <% end %>
+            <% else %>
+              <p class='booking-tag'><%= booking.status %></p>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+      </div>
+    <% end %>
+  <% end %>
