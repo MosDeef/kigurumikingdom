@@ -25,9 +25,9 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://mondomascots.com/wp-content/uploads/2023/01/image2-1.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My bookings (as mascot enjoyer)", bookings_path, class: "dropdown-item" %>
-              <%= link_to "My bookings (as mascot owner )", owner_bookings_path, class: "dropdown-item" %>
-              <%= link_to 'Add a mascot', new_mascot_path, class: 'dropdown-item'  %>
+              <%= link_to "Mascots I've Booked", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Owner Booking Page", owner_bookings_path, class: "dropdown-item" %>
+              <%= link_to 'Add A Mascot', new_mascot_path, class: 'dropdown-item'  %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
