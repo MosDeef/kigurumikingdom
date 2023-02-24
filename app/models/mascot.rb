@@ -17,8 +17,9 @@ class Mascot < ApplicationRecord
   }
 
   def average_rating
-    ratings = self.reviews.map { |review| review.rating}
-    ratings.sum/ratings.count
+    # ratings = self.reviews.map { |review| review.rating}
+    # ratings.sum/ratings.count
+    reviews.average(:rating)&.round(1)
   end
 
 end
