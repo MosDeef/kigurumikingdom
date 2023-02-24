@@ -5,8 +5,7 @@ class ReviewPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
-  def create? 
+  def create?
     true
-    
   end
 end

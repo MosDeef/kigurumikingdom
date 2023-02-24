@@ -33,42 +33,36 @@
     <div class="container">
       <div class="row">
         <div class="col-6">
-          <h3 class="text-center mb-3"> Our Favourites </h3>
+          <h3 class="text-center mb-3"> Top rating ⭐️⭐️⭐️ </h3>
         </div>
         <div class="col-6 text-right">
-          <a class="btn btn-ghost mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-            <i class="fa fa-arrow-left"></i>
-          </a>
-          <a class="btn btn-ghost mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-            <i class="fa fa-arrow-right"></i>
-          </a>
         </div>
         <div class="col-12">
-          <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <% @carousel_items.each_with_index do |mascots, index|  %>
-                <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                  <div class="row">
-                    <% mascots.each do |mascot| %>
-                      <div class="col-md-4 mb-3">
-                        <div class="card">
-                          <%= cl_image_tag mascot.photo.key, class:"img-fluid" %>
-                          <div class="card-body">
-                            <h4 class="card-title"> <%= mascot.name %></h4>
-                          </div>
-                        </div>
-                      </div>
-                    <% end  %>
+          <div class="cards p-4">
+            <% @toprated_mascots.each do |mascot| %>
+              <%= link_to mascot_path(mascot), class: 'text-light text-decoration-none' do  %>
+                <div class="card-trip rounded-4">
+                  <%= image_tag mascot.photo.attached? ? cl_image_path(mascot.photo.key) : 'https://mondomascots.com/wp-content/uploads/2023/01/image1-1.jpeg', class: 'rounded-3' %>
+                  <h2 class="text-center pt-3"><%= mascot.name %></h2>
+                  <div class="card-trip-infos">
+                    <div>
+                      <p><%= mascot.location %></p>
+                      <p><%= mascot.average_rating %></p>
+                    </div>
+                    <p class="card-trip-pricing opacity-50">From ¥<%= mascot.price %>~</p>
                   </div>
                 </div>
               <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </div>
+</section>
+</div>
+
 <div class="container text-center mt-4">
   <h3 class="mb-3"> 皆さん初めまして </h3>
   <p>We connect individuals with the colorful and charismatic mascots they love. We strive to create a community where fans and enthusiasts can easily discover, interact with, and learn more about these beloved characters through our user-friendly platform. Our ultimate goal is to create joy and cultural awareness by fostering meaningful connections between people and their favorite mascots.</p>

@@ -16,4 +16,9 @@ class Mascot < ApplicationRecord
     tsearch: { prefix: true }
   }
 
+  def average_rating
+    ratings = self.reviews.map { |review| review.rating}
+    ratings.sum/ratings.count
+  end
+
 end
